@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once "vendor/autoload.php";
+include_once "src/Utilitaire/singleton8logger.php";
 
 use App\Modele\Modele_Salarie;
 use App\Utilitaire\Singleton_Logger;
@@ -64,6 +65,8 @@ switch ($typeConnexion) {
                 include "Controleur/Controleur_Gerer_Entreprise.php";
                 break;
         }
+        \Singleton_Logger::getInstance();
+
         break;
     case "entreprise_utilisateur" :
         switch ($case) {
@@ -83,6 +86,8 @@ switch ($typeConnexion) {
                 break;
         }
 }
+
+
 
 
 $Vue->afficher();
